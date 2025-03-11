@@ -10,6 +10,4 @@ node_modules
 # JetBrains IDE
 .idea
 
-# Vercel
-.vercel
-.env*.local
+
