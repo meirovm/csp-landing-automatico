@@ -22,7 +22,14 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link href="/">
             <span onClick={closeMenu}>
-              <h1>Your Logo</h1>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><img src="/logo1.png" alt="Logo" style={{ height: '40px', marginRight: '10px' }} /></td>
+                    <td><h1 className="text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">AUTOMATICO</h1></td>
+                  </tr>
+                </tbody>
+              </table>
             </span>
           </Link>
         </div>
@@ -38,33 +45,40 @@ const Navbar = () => {
             <li>
               <Link href="https://docs.cloudrift.ai/getting_started">
                 <span onClick={closeMenu} className="block px-4 py-2 text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">
-                  Documentation
+                  Документация
                 </span>
               </Link>
             </li>
             <li>
               <Link href="/#pricing">
                 <span onClick={closeMenu} className="block px-4 py-2 text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">
-                  Pricing
+                  Цены
                 </span>
               </Link>
             </li>
-            <li>
+            {/*<li>
               <Link href="/#contactus">
-                <span onClick={closeMenu} className="block px-4 py-2 text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">
-                  Contact
-                </span>
+              <span onClick={closeMenu} className="block px-4 py-2 text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">
+                Contact
+              </span>
               </Link>
-            </li>
+            </li>*/}
             <li>
               <Link href="/about">
                 <span onClick={closeMenu} className="block px-4 py-2 text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">
-                  About Us
+                  О Нас
                 </span>
               </Link>
             </li>
             <li>
-              <Link href="[[Discord]]">
+              <Link href="https://wa.me/77066868101">
+              <span className="block px-4 py-2 text-white lg:inline lg:py-0">
+                +7 (706) 68-68-101
+                </span>
+              </Link>
+              </li>
+            <li>
+              <Link href="https://discord.gg/Jyu5rV5N">
                 <span onClick={closeMenu} className="block px-4 py-0 text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">
                   <i className="bi bi-discord" style={{ fontSize: '1.5rem', position: 'relative', top: '-5px' }}></i>
                 </span>

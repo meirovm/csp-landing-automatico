@@ -11,22 +11,21 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    question:
-      "Why should I use [[Brand]] instead of a third-party marketplace?",
+    question: "Почему я должен использовать AUTOMATICO, а не сторонний рынок?",
     answer:
-      "[[Brand]] avoids middleman fees, offers direct hardware access, and aligns our incentives with yours, ensuring high reliability and customer-focused service.",
+      "AUTOMATICO избегает комиссий посредников, предлагает прямой доступ к оборудованию и согласовывает наши интересы с вашими, обеспечивая высокую надежность и ориентированность на клиента.",
   },
   {
     id: 2,
-    question: "Can I get custom server configuration?",
+    question: "Могу ли я получить индивидуальную конфигурацию сервера?",
     answer:
-      "We may be able to provision a custom server for you conditioned on a down payment. Please contact us.",
+      "Мы можем предоставить вам индивидуальный сервер при условии предоплаты. Пожалуйста, свяжитесь с нами.",
   },
   {
     id: 3,
-    question: "How is support handled?",
+    question: "Как осуществляется поддержка?",
     answer:
-      "Support is unmanaged but proactive, with assistance available via email and Discord, plus preventive measures to avoid future issues.",
+      "Поддержка по электронной почте и Discord, а также с превентивными мерами для предотвращения будущих проблем.",
   },
 ];
 

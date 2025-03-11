@@ -8,11 +8,10 @@ const AboutUsHeroSection: React.FC = () => {
         GPU-Powered Innovation
       </h1>
       <p className="mt-8 max-w-7xl text-xl font-light text-[#717177]">
-        At [[Brand]], founded by [[Founder]], we are not just a provider of
-        GPU hosting services—we are innovators in a complex landscape of
-        technology. Our approach goes beyond traditional service; we offer
-        transformative solutions tailored to each client’s unique computational
-        needs.
+        В AUTOMATICO мы не просто поставщик услуг
+        хостинга GPU — мы новаторы в сложном мире технологий. Наш подход выходит
+        за рамки традиционных услуг. Мы предлагаем трансформационные решения,
+        адаптированные к уникальным вычислительным потребностям каждого клиента.
       </p>
     </div>
   );

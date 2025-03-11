@@ -1,4 +1,4 @@
-// Pricing.tsx
+// Цены.tsx
 import React from "react";
 import GPURentalCard from "./GPURentalCard";
 import { NextSeo } from 'next-seo';
@@ -18,76 +18,76 @@ const Pricing: React.FC = () => {
   const { lowestPrices, loading } = useLowestPrices();
 
   const getPrice = (type: "rtx4090" | "rtx5090" | "cpu") => {
-    if (loading) return "Loading...";
-    if (!lowestPrices || lowestPrices[type] === null) return "Price unavailable";
+    if (loading) return "Загрузка...";
+    if (!lowestPrices || lowestPrices[type] === null) return "Цена недоступна";
 
     if (type === "rtx4090" || type === "rtx5090") {
       const price = lowestPrices[type];
       if (price === null) {
-        return "Price unavailable";
+        return "Цена недоступна";
       }
-      return `$${(price / 100).toFixed(2)} / per hour`;
+      return `$${(price / 100).toFixed(2)} / в час`;
     } else if (type === "cpu") {
       const price = lowestPrices.cpu;
       if (price === null) {
-        return "Price unavailable";
+        return "Цена недоступна";
       }
-      return `${price.toFixed(2)}¢ / vcpu hour`;
+      return `${price.toFixed(2)}¢ / vcpu час`;
     }
-    return "Price unavailable";
+    return "Цена недоступна";
   };
 
   const pricingPlans: PricingPlan[] = [
     {
       id: 1,
-      name: "On-Demand GPUs",
+      name: "Графические процессоры по запросу",
       price: getPrice("rtx4090"),
-      description: "Elite performance for advanced projects",
+      description: "Элитная производительность для сложных проектов",
       features: [
-        "NVidia RTX 4090 servers",
-        "Run containerized workloads",
-        "Versatile tooling for cluster management & monitoring"
+        "Серверы NVidia RTX 4090",
+        "Запуск контейнеризованных рабочих нагрузок",
+        "Универсальные инструменты для управления и мониторинга кластеров"
       ],
-      buttonLabel: "Rent a GPU Now",
+      buttonLabel: "Арендовать GPU сейчас",
       link: "/console",
     },
     {
       id: 2,
       name: "GeForce RTX 5090",
       price: getPrice("rtx5090"),
-      description: "Game-changing capabilities with unprecedented AI horsepower",
+      description: "Революционные возможности с беспрецедентной мощностью ИИ",
       features: [
-        "32GB GDDR7 memory",
-        "NVIDIA Blackwell architecture",
-        "Superior deep learning performance"
+        "32 ГБ памяти GDDR7",
+        "Архитектура NVIDIA Blackwell",
+        "Высочайшая производительность в области глубокого обучения"
       ],
-      buttonLabel: "Coming February 2025",
+      buttonLabel: "Доступно с февраля 2025",
       link: "#",
     },
     {
       id: 3,
-      name: "On-Demand CPUs",
+      name: "Процессоры по запросу",
       price: getPrice("cpu"),
-      description: "Scalable compute power for intensive workloads",
+      description: "Масштабируемая вычислительная мощность для интенсивных рабочих нагрузок",
       features: [
-        "AMD EPYC processors",
-        "Up to 192 CPU cores",
-        "Optimized for multi-threaded applications"
+        "Процессоры AMD EPYC",
+        "До 192 ядер ЦП",
+        "Оптимизировано для многопоточных приложений"
       ],
-      buttonLabel: "Rent a CPU Now",
+      buttonLabel: "Арендовать CPU сейчас",
       link: "/console",
     },
     {
       id: 4,
-      name: "Dedicated Solutions",
-      price: "Custom pricing",
-      description: "Customized configurations for specialized needs",
+      name: "Выделенные решения",
+      price: "Индивидуальная цена",
+      description: "Настраиваемые конфигурации для специализированных нужд",
       features: [
-        "Full hardware customization",
-        "Bare metal and VDS solutions",
-        "Dedicated support and account management"
+        "Полная настройка оборудования",
+        "Решения Bare metal и VDS",
+        "Выделенная поддержка и управление аккаунтом"
       ],
-      buttonLabel: "Contact Us",
+      buttonLabel: "Свяжитесь с нами",
       link: "#contactus",
     },
   ];
@@ -95,43 +95,43 @@ const Pricing: React.FC = () => {
   return (
     <div className="min-h-4/5 flex items-center justify-center bg-black" id="pricing">
       <NextSeo
-        title="GPU Rental Pricing | 85% Less for Datacenter-Hosted GPUs"
-        description="Affordable GPU rental pricing for AI, ML, and crypto mining. Rent datacenter-hosted GPUs with no middlemen, no commitment, and no hidden fees. Tier 3 design with high-speed network."
-        openGraph={{
-          title: 'GPU Rental Pricing | 85% Less for Datacenter-Hosted GPUs',
-          description: 'View our affordable GPU rental pricing. 85% less than competitors, no middlemen, no commitment. High-speed network, ideal for AI, ML, and crypto mining.',
-        }}
-        additionalMetaTags={[
-          {
-            name: 'keywords',
-            content: 'GPU rental pricing, RTX 4090, RTX 5090, datacenter-hosted GPUs, AI computing costs, machine learning hardware pricing, cryptocurrency mining costs, no middlemen, no commitment, Tier 3 design, high-speed network'
-          }
-        ]}
+      title="Аренда GPU размещенных в дата-центрах Казахстана"
+      description="Доступные цены на аренду GPU для ИИ, машинного обучения и майнинга криптовалют. Арендуйте размещенные в дата-центре GPU без посредников, без обязательств и скрытых платежей."
+      openGraph={{
+        title: 'Аренда GPU размещенных в дата-центрах Казахстана',
+        description: 'Посмотрите наши доступные цены на аренду GPU. Дешевле чем у конкурентов, без посредников, без обязательств. Высокоскоростная сеть, идеально подходит для ИИ, машинного обучения и майнинга криптовалют.',
+      }}
+      additionalMetaTags={[
+        {
+        name: 'keywords',
+        content: 'цены на аренду GPU, RTX 4090, RTX 5090, размещенные в дата-центре GPU, стоимость вычислений для ИИ, цены на оборудование для машинного обучения, стоимость майнинга криптовалют, без посредников, без обязательств, дизайн Tier 3, высокоскоростная сеть'
+        }
+      ]}
       />
 
       <div className="w-full max-w-7xl px-2 py-12 text-white">
-        <h2 className="mb-8 text-5xl text-center font-bold text-white sm:text-4xl md:text-5xl">
-          Simple and Flexible Pricing
-        </h2>
-        <div className="flex flex-wrap items-center justify-center gap-8">
-          {pricingPlans.map((plan, index) => (
-            <div
-              key={plan.id}
-              className={`w-90 ${
-                index === 1 ? "rounded-xl bg-gradient-to-r from-blue-500 to-blue-400 p-[1px]" : ""
-              }`}
-            >
-              <GPURentalCard
-                name={plan.name}
-                price={plan.price}
-                description={plan.description}
-                features={plan.features}
-                buttonLabel={plan.buttonLabel}
-                link={plan.link}
-              />
-            </div>
-          ))}
+      <h2 className="mb-8 text-5xl text-center font-bold text-white sm:text-4xl md:text-5xl">
+        Простое и гибкое ценообразование
+      </h2>
+      <div className="flex flex-wrap items-center justify-center gap-8">
+        {pricingPlans.map((plan, index) => (
+        <div
+          key={plan.id}
+          className={`w-90 ${
+          index === 1 ? "rounded-xl bg-gradient-to-r from-blue-500 to-blue-400 p-[1px]" : ""
+          }`}
+        >
+          <GPURentalCard
+          name={plan.name}
+          price={plan.price}
+          description={plan.description}
+          features={plan.features}
+          buttonLabel={plan.buttonLabel}
+          link={plan.link}
+          />
         </div>
+        ))}
+      </div>
       </div>
     </div>
   );

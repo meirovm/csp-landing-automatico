@@ -13,14 +13,14 @@ export default function Home() {
        title="Datacenter-Hosted GPUs | Direct Rental, No Middlemen"
        description="Rent GPUs on-demand directly from datacenter for AI, ML, and crypto mining"
        openGraph={{
-         url: 'https://[[Domain]]',
-         title: '[[Brand]] - Datacenter-Hosted GPUs',
+         url: 'https://automatico.kz',
+         title: 'AUTOMATICO - Datacenter-Hosted GPUs',
          description: 'Rent GPUs on-demand directly from datacenter for AI, ML, and crypto mining',
        }}
        additionalMetaTags={[
          {
            name: 'keywords',
-           content: '[[Brand]], datacenter-hosted GPUs, direct GPU rental, no middlemen, AI computing, machine learning, cryptocurrency mining, [[Keywords]]'
+           content: 'AUTOMATICO, datacenter-hosted GPUs, direct GPU rental, no middlemen, AI computing, machine learning, cryptocurrency mining, [[Keywords]]'
          }
        ]}
      />

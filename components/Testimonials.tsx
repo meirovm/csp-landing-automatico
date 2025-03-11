@@ -10,26 +10,26 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Lorem Inc.",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    name: "Accounting Pro",
+    text: "Аренда GPU оказалась невероятно удобной для закрытия документов по бухгалтерии. Теперь мы можем обрабатывать большие объемы данных гораздо быстрее и эффективнее. Это значительно упростило нашу работу и сократило время на выполнение задач.",
   },
   {
     id: 2,
-    name: "Lorem Corp",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    name: "Kazakhstan Data Center",
+    text: "Наконец-то нашел GPU на территории Казахстана! Это позволяет нам соблюдать законодательство о трансграничной передаче персональных данных и при этом использовать мощные вычислительные ресурсы. Очень доволен сервисом!",
   },
   {
     id: 3,
-    name: "Lorem Ipsum",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
+    name: "Tech Solutions",
+    text: "Отличный сервис! Аренда GPU позволила нам значительно ускорить наши вычисления и сократить время на обработку данных. Рекомендуем!",
+  },  
 ];
 
 const Testimonials: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-black py-12">
       <h2 className="mb-20 text-5xl text-white">
-        Hear from Our Satisfied Users
+        Отзывы наших довольных пользователей
       </h2>
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((testimonial) => (

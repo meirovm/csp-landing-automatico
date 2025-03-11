@@ -15,7 +15,7 @@ This is a template repository to create your own GPU rental website based on
 
 ## Localization
 
-1. Replace terms in double square brackets like `[[Brand]]`, `[[Founder]]`, `[[Domain]]`, `[[Keywords]]` and replace them with your own values.
+1. Replace terms in double square brackets like `AUTOMATICO`, `[[Founder]]`, `[[Domain]]`, `[[Keywords]]` and replace them with your own values.
 2. Keywords are important for SEO, so make sure to replace them with relevant ones. It is also useful to create additional
    pages with keywords in mentioned in H1 tags to improve SEO.
 3. Adjust information about datacenter design: network speed, ISP speed, cooling, power, security, etc.

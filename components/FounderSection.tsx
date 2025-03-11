@@ -21,13 +21,12 @@ const FounderSection: React.FC = () => {
             </div>
           </div>
           <div className="text-top flex w-full flex-col  md:w-auto md:items-start md:text-left">
-            <h2 className="mb-6 text-6xl font-medium">Meet the Founder</h2>
+            <h2 className="mb-6 text-6xl font-medium">Основатель</h2>
             <p className="max-w-lg text-xl font-light text-[#BABAD4]">
-              Label White brings a decade of experience in computer hardware and
-              datacenter operations, AI infrastructure development, and a passion for
-              AI compute solutions. His comprehensive background and hands-on approach
-              in hardware and infrastructure and customer obsession have been the
-              driving force behind White Label CSP success.
+              ХХХХХХХ имеет более 18-лет опыт работы в корпоративном секторе Казахстана в области разработки приложений, компьютерного оборудования и эксплуатации дата-центров, 
+              разработки инфраструктуры ИИ и страсть к решениям для вычислений ИИ. 
+              Его обширный опыт и практический подход в области оборудования и инфраструктуры, 
+              а также ориентация на клиента стали движущей силой успеха AUTOMATICO.
             </p>
           </div>
         </div>
