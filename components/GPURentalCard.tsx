@@ -10,6 +10,7 @@ interface CardProps {
   features: string[];
   className?: string;
   buttonLabel?: string;
+  buttonStyleExtras?: string;
   link: string;
 }
 
@@ -20,6 +21,7 @@ const GPURentalCard: React.FC<CardProps> = ({
   features,
   className = "",
   buttonLabel = "",
+  buttonStyleExtras = "border-white font-bold text-white",
   link,
 }) => {
   return (
@@ -36,12 +38,13 @@ const GPURentalCard: React.FC<CardProps> = ({
         ))}
       </ul>
       <Link href={link}>
-        <Button className="w-full rounded-full border border-white bg-zinc-900 px-4 py-4 font-bold text-white transition-colors duration-200 group-hover:border-transparent group-hover:bg-[#191970]">
-            {buttonLabel || "Арендовать GPU сейчас"}
+        <Button className={`w-full rounded-full border bg-zinc-900 px-4 py-4 transition-colors duration-200 group-hover:border-transparent group-hover:bg-[#191970] ${buttonStyleExtras}`}>
+          {buttonLabel || "Rent a GPU Now"}
         </Button>
       </Link>
     </div>
   );
 };
+
 
 export default GPURentalCard;
