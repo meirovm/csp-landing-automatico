@@ -25,7 +25,7 @@ const Navbar = () => {
               <table>
                 <tbody>
                   <tr>
-                    <td><img src="" alt="Logo" style={{ height: '40px', marginRight: '10px' }} /></td>
+                    <td><img src="logo1.png" alt="Logo" style={{ height: '40px', marginRight: '10px' }} /></td>
                     <td><h1 className="text-white hover:text-gray-300 lg:inline lg:py-0 cursor-pointer">AUTOMATICO</h1></td>
                   </tr>
                 </tbody>
