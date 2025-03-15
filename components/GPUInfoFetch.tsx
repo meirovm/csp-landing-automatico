@@ -108,3 +108,4 @@ import { useState, useEffect } from "react";
  
    return { lowestPrices, loading };
  };
+ export { useLowestPrices };
