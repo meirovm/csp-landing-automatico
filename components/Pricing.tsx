@@ -32,7 +32,7 @@ const Pricing: React.FC = () => {
     else {
       const price = lowestPrices[type];
       if (price === null) {
-        return "Ценв недоступна";
+        return "Цена недоступна";
       }
       return `$${(price / 100).toFixed(2)} / per hour`;
     }
