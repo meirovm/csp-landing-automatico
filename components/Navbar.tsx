@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Link from "./foundational/Link";
 import "../app/globals.css";
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 

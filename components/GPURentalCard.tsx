@@ -26,7 +26,7 @@ const GPURentalCard: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className={`w-full md:w-1/2 lg:w-1/3 h-140 mx-auto max-w-sm rounded-xl bg-zinc-900 p-6 text-white shadow-lg transition duration-300 hover:bg-gray-800 ${className} group`}
+      className={`w-90 h-140 mx-auto max-w-sm rounded-xl bg-zinc-900 p-6 text-white shadow-lg transition duration-300 hover:bg-gray-800 ${className} group`}
     >
       <div className="font mb-2 text-xl">{name}</div>
       <div className="mb-4 text-3xl font-bold">{price}</div>

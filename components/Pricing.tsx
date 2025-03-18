@@ -180,7 +180,7 @@ const Pricing: React.FC = () => {
       />
 
       <div className="w-full max-w-7xl px-2 py-12 text-white">
-      <h2 className="mb-8 text-5xl text-center font-bold text-white sm:text-4xl md:text-5xl">
+      <h2 className="mb-8 text-3xl sm:text-4xl md:text-5xl text-center font-bold text-white">
         Высокопроизводительные <span className="text-blue-400">Дата-центр</span> GPU
       </h2>
       <div className="flex flex-wrap items-center justify-center gap-8">

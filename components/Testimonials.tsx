@@ -27,19 +27,19 @@ const testimonials: Testimonial[] = [
 
 const Testimonials: React.FC = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-black py-12">
-      <h2 className="mb-20 text-5xl text-white">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-black py-8 sm:py-12">
+      <h2 className="mb-10 sm:mb-20 text-3xl sm:text-4xl md:text-5xl text-center font-bold text-white">
         Отзывы наших довольных пользователей
       </h2>
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:gap-12 px-4 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((testimonial) => (
           <blockquote
             key={testimonial.id}
-            className="mb-10 flex h-full flex-col justify-between text-left text-lg italic text-zinc-400"
+            className="mb-6 sm:mb-10 flex h-full flex-col justify-between text-left text-base sm:text-lg italic text-zinc-400"
           >
-            <p className="mb-0">"{testimonial.text}"</p>
+            <p className="mb-4">&ldquo;{testimonial.text}&rdquo;</p>
             <div className="relative flex items-end not-italic text-white">
-              <span className="border-t-2 border-blue-500 text-zinc-400">
+              <span className="border-t-2 border-blue-500 pt-2 text-sm sm:text-base text-zinc-400">
                 {testimonial.name}
               </span>
             </div>
