@@ -5,6 +5,8 @@ import Pricing from "../components/Pricing";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import "../app/globals.css";
+import Footer from "../components/Footer";
+import ContactUs from "../components/ContactUs";
 
 export default function Home() {
  return (
@@ -31,6 +33,8 @@ export default function Home() {
        <Testimonials />
        <FAQ />
      </div>
+     <ContactUs />
+      <Footer />
    </div>
  );
 }
