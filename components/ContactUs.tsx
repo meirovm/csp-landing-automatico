@@ -29,10 +29,10 @@ const ContactUs = () => {
           <div className="flex flex-col space-y-8 md:space-y-12 md:items-start items-center sm:items-start">
             <div className="space-y-10 text-center sm:text-left md:text-left">
               <h2 className="text-4xl font-bold leading-[1.25] md:text-7xl">
-                Let's Talk
+                Давай обсудим
               </h2>
               <p className="text-zinc-400">
-                Proudly hosted in  Automatico location
+                Аренда GPU юридическим лицам и физическим лицам
               </p>
             </div>
             <div className="space-y-4 text-center sm:text-left md:text-left">
@@ -43,7 +43,7 @@ const ContactUs = () => {
               <h3 className="text-xl font-semibold">Socials</h3>
               <p>
                 <Link
-                  href="https://discord.gg/u8YZZJXdnr"
+                  href="https://discord.gg/zPKKFjfK"
                   className="text-white underline"
                 >
                   Discord
@@ -57,7 +57,7 @@ const ContactUs = () => {
         <div className="flex flex-1 justify-center sm:justify-start sm:pl-24">
           <form className="w-full max-w-md space-y-4" onSubmit={handleSubmit}>
             <div className="flex flex-col space-y-4">
-              <h3 className="text-sm">Name</h3>
+              <h3 className="text-sm">Ваше имя</h3>
               <input
                 type="text"
                 name="name"
@@ -65,7 +65,7 @@ const ContactUs = () => {
                 onChange={handleChange}
                 className="bg-[#18181B] p-3 text-white placeholder-gray-400 focus:outline-none"
               />
-              <h3 className="text-sm">Subject</h3>
+              <h3 className="text-sm">Тема</h3>
               <input
                 type="text"
                 name="subject"
@@ -73,7 +73,7 @@ const ContactUs = () => {
                 onChange={handleChange}
                 className="bg-[#18181B] p-3 text-white placeholder-gray-400 focus:outline-none"
               />
-              <h3 className="text-sm">Message</h3>
+              <h3 className="text-sm">Сообщение</h3>
               <textarea
                 name="message"
                 value={formData.message}
@@ -87,7 +87,7 @@ const ContactUs = () => {
                 Get in touch
               </Button>
               <div className="mt-8 text-center text-gray-400">
-                Powered by CloudRift Platform
+                Powered by Automatico
               </div>
             </div>
           </form>
