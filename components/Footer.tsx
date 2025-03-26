@@ -12,7 +12,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-  logoSrc = "/logo.png",
+  logoSrc = "/logo1.png",
   logoAlt = "Automatico",
   companyName = "Automatico",
   description = "High-performance computing solutions for your needs. Experience unparalleled performance with our cutting-edge technology.",
@@ -20,6 +20,7 @@ const Footer: React.FC<FooterProps> = ({
     { name: "RTX 4090", href: "/rtx4090" },
     { name: "RTX 5090", href: "/rtx5090" },
     { name: "Offerings", href: "/offerings" },
+    { name: "Документация", href: "https://docs.cloudrift.ai/getting_started" },
   ],
   companyLinks = [
     { name: "О Нас", href: "/about" },

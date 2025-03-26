@@ -48,6 +48,13 @@ const ContactUs = () => {
                 >
                   Discord
                 </Link>
+                <br/>
+                <Link
+                  href="https://wa.me/77066868101"
+                  className="text-white underline"
+                >
+                  WhatsApp +7 706 686 8101
+                </Link>
               </p>
             </div>
           </div>
