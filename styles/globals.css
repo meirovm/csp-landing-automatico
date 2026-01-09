@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* NeuralRack Theme */
+:root {
+  --background: #141414;
+  --accent: #3B82F6;
+  --type-color: #E5E7EB;
+  --card-bg: #202024;
+  --primary: #191970;
+  --body-text-color: #E5E7EB;
+  --drop-shadow-color: #212121;
+  --primary-dark: #141460;
+  --primary-light: #1E1E80;
+  --surface: #072f56;
+  --surface-dark: #034784;
+  --foreground: #E5E7EB;
+  --button-bg: #191970;
+  --button-hover-bg: #141460;
+  --border-color: #374151;
+  --placeholder-color: #6B7280;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-accent: var(--accent);
+  --color-card-bg: var(--card-bg);
+  --color-border-color: var(--border-color);
+  --color-type: var(--type-color);
+  --color-body-text: var(--body-text-color);
+  --color-drop-shadow: var(--drop-shadow-color);  
+  --font-sans: var(--font-instrument-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-instrument-sans), Arial, Helvetica, sans-serif;
+}
+

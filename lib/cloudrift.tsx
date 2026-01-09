@@ -1,88 +1,141 @@
-export async function apiRequest<T>(endpoint: string, token: boolean, requestData?: any): Promise<T> {
-    const apiUrl = getRiftApiUrl();
-    const method = "POST";
-    const headers: HeadersInit = {
-        "Content-Type": "application/json",
+// ============================================================================
+// Constants
+// ============================================================================
+
+const API_VERSIONS = {
+  PRODUCTION: '2025-12-27',
+  UPCOMING: '~upcoming',
+} as const;
+
+// ============================================================================
+// Core API Functions
+// ============================================================================
+
+export async function apiRequest<TResponse, TRequest extends object = object>(
+  endpoint: string,
+  requestData?: TRequest,
+  method: string = 'POST',
+  timeoutMs: number = 40000
+): Promise<TResponse> {
+  const headers: HeadersInit = {
+    'Content-Type': 'application/json',
+  };
+
+  // Methods that can have a body
+  const methodsWithBody = ['POST', 'PUT', 'PATCH'];
+  const shouldIncludeBody = methodsWithBody.includes(method.toUpperCase());
+
+  let fetchOptions: RequestInit = {
+    method,
+    headers,
+  };
+
+  if (shouldIncludeBody && requestData) {
+    const body: { data: TRequest; version: string } = {
+      data: requestData,
+      version: getRiftApiVersion(),
     };
+    fetchOptions = {
+      ...fetchOptions,
+      body: JSON.stringify(body),
+    };
+  }
 
-    const key = getRiftProviderPubApiKey();
-    if (key) {
-        headers["X-API-Key"] = key;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const apiUrl = getRiftApiUrl();
+    const response = await fetch(`${apiUrl}${endpoint}`, {
+      ...fetchOptions,
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+
+    const contentType = response.headers.get('Content-Type');
+    const responseText = await response.text();
+
+    if (!response.ok) {
+      const error = new Error(
+        `Request failed with status code: ${response.status}`
+      );
+      throw error;
     }
 
-    if (token) {
-        const authToken = localStorage.getItem("token");
-        if (authToken) {
-            headers["Authorization"] = "Bearer " + authToken;
-        } else {
-            console.error("Token not found in localStorage.");
-            throw new Error("Authorization token is missing.");
-        }
+    if (response.status === 204) {
+      return undefined as TResponse;
     }
-    
-    const body: any = {};
-    if (requestData) {
-        body.data = requestData || {};
-        body.version = getRiftApiVersion();
+
+    if (contentType && contentType.includes('application/json')) {
+      try {
+        const jsonResponse = JSON.parse(responseText);
+        return jsonResponse as TResponse;
+      } catch {
+        throw new Error(
+          `Failed to parse response as JSON. Status code: ${response.status}, response: ${responseText}`
+        );
+      }
+    } else {
+      return responseText as unknown as TResponse;
     }
-    
-    try {
-        console.log(`Sending API request to ${apiUrl}${endpoint} with method ${method}`);
-        const response = await fetch(`${apiUrl}${endpoint}`, {
-            method,
-            headers,
-            body: JSON.stringify(body),
-        });
+  } catch (error) {
+    clearTimeout(timeoutId);
 
-        const contentType = response.headers.get("Content-Type");
-        const responseText = await response.text();
-
-        console.log(`Received response with status: ${response.status}, Content-Type: ${contentType}`);
-        console.log(`Response body: ${responseText}`);
-
-        if (!response.ok) {
-            let errorMessage = `API call failed with status code: ${response.status}`;
-            errorMessage += `, Response: ${responseText}`;
-            console.error(errorMessage);
-            throw new Error(errorMessage);
-        }
-
-        if (contentType && contentType.includes("application/json")) {
-            try {
-                const jsonResponse = JSON.parse(responseText);
-                console.log(`Parsed JSON response:`, jsonResponse);
-                return jsonResponse.data ? jsonResponse : ({} as T);
-            } catch (error) {
-                console.error(`Failed to parse response as JSON. Status code: ${response.status}, response: ${responseText}`);
-                throw new Error(`Failed to parse response as JSON. Status code: ${response.status}, response: ${responseText}`);
-            }
-        } else {
-            console.log(`Received text response:`, responseText);
-            return responseText as any;
-        }
-    } catch (error) {
-        console.error(`Error during API request to ${apiUrl}${endpoint}:`, error);
-        throw error;
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error(
+        'The request took too long to complete. Please check your connection and try again.'
+      );
     }
+
+    throw error;
+  }
 }
+
+// ============================================================================
+// Environment Configuration Getters
+// ============================================================================
+
+// --- API Configuration ---
 
 export function getRiftApiUrl(): string {
-    return process.env.NEXT_PUBLIC_RIFT_API_URL || 'https://api.cloudrift.ai';
-}
-
-export function getRiftConsoleUrl(): string {
-    return process.env.NEXT_PUBLIC_RIFT_CONSOLE_URL || 'https://console.cloudrift.ai/console';
-}
-
-export function getRiftProviderPubApiKey(): string | null {
-    return process.env.NEXT_PUBLIC_RIFT_API_KEY || null;
+  return process.env.NEXT_PUBLIC_RIFT_API_URL || 'https://api.cloudrift.ai';
 }
 
 export function getRiftApiVersion(): string {
-    const RIFT_PROD_API_VERSION = "2025-02-10";
-    if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
-        return RIFT_PROD_API_VERSION;
-    } else {
-        return "~upcoming";
-    }
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
+    return API_VERSIONS.PRODUCTION;
+  }
+  return API_VERSIONS.UPCOMING;
+}
+
+export function getRiftConsoleUrl(): string {
+  return process.env.NEXT_PUBLIC_RIFT_CONSOLE_URL || 'https://console.cloudrift.ai/console';
+}
+
+// --- Provider Configuration ---
+
+export function getRiftProviderPubApiKey(): string | null {
+  return process.env.NEXT_PUBLIC_RIFT_API_KEY || null;
+}
+
+export function getRiftProviderName(): string {
+  return process.env.NEXT_PUBLIC_RIFT_PROVIDER_NAME || 'CloudRift';
+}
+
+export function getRiftProviderLogo(): string {
+  return process.env.NEXT_PUBLIC_RIFT_PROVIDER_LOGO || 'https://storage.googleapis.com/cloudrift-resources/images/logo/cloudrift.svg';
+}
+
+export function getRiftProviderComputeLogo(): string {
+  return process.env.NEXT_PUBLIC_RIFT_PROVIDER_COMPOUND_LOGO || 'https://storage.googleapis.com/cloudrift-resources/images/logo/cloudrift_compound_white.svg';
+}
+
+// --- Feature Configuration ---
+
+export function getWithPublicIP(): boolean {
+  return (
+    process.env.NEXT_PUBLIC_WITH_PUBLIC_IP === 'true' ||
+    (!process.env.NEXT_PUBLIC_WITH_PUBLIC_IP &&
+      process.env.NEXT_PUBLIC_VERCEL_ENV === 'production')
+  );
 }
